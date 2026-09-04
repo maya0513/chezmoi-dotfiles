@@ -1,0 +1,4 @@
+[tools]
+"github:openai/codex" = "latest"
+node = "lts"
+pnpm = "latest"

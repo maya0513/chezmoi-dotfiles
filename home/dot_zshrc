@@ -1,0 +1,6 @@
+# Created by newuser for 5.9
+export EDITOR=nano
+export VISUAL=nano
+
+eval "$(mise activate zsh)"
+eval "$(starship init zsh)"
