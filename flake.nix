@@ -35,9 +35,23 @@
               chezmoi
               starship
               mise
+              gh
+              just
+
+              ripgrep
+              fd
+              fzf
+              jq
+              bat
+              zoxide
             ];
           };
         }
+      );
+
+      formatter = forAllSystems (
+        system:
+        nixpkgs.legacyPackages.${system}.nixfmt
       );
     };
 }
