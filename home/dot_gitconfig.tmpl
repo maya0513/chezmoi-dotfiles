@@ -3,3 +3,9 @@
 	email = {{ .gitEmail | quote }}
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper =
+	helper = !{{ .chezmoi.homeDir }}/.nix-profile/bin/.gh-wrapped auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !{{ .chezmoi.homeDir }}/.nix-profile/bin/.gh-wrapped auth git-credential
