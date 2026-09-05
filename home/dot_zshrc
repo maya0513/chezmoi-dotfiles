@@ -2,5 +2,7 @@
 export EDITOR=nano
 export VISUAL=nano
 
+bindkey -r '^V'
+
 eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
