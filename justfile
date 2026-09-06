@@ -28,7 +28,7 @@ build:
 #
 # build が成功してから既存 base-env を入れ替える。
 switch: check build
-    nix profile remove chezmoi 2>/dev/null || true
+    nix profile remove chezmoi-dotfiles 2>/dev/null || true
     nix profile add .#default
 
 # nixpkgs の lock を更新してから反映

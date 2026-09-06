@@ -37,6 +37,8 @@
               mise
               gh
               just
+              just-lsp
+              git-lfs
 
               ripgrep
               fd
@@ -44,14 +46,14 @@
               jq
               bat
               zoxide
+
+              blender
+              godot
             ];
           };
         }
       );
 
-      formatter = forAllSystems (
-        system:
-        nixpkgs.legacyPackages.${system}.nixfmt
-      );
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
     };
 }
