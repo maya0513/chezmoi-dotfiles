@@ -3,10 +3,15 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, ... }:
+    { nixgl, nixpkgs, ... }:
 
     let
       supportedSystems = [
@@ -24,6 +29,10 @@
         let
           # 対象 system 用の nixpkgs パッケージセット
           pkgs = nixpkgs.legacyPackages.${system};
+          nixGL = import ./nix/nixgl.nix {
+            inherit pkgs;
+            nixgl = nixgl.packages.${system};
+          };
         in
         {
           # `nix build` や `nix profile install .`で選ばれるデフォルトパッケージ
@@ -47,8 +56,8 @@
               bat
               zoxide
 
-              blender
-              godot
+              (nixGL.wrap blender)
+              (nixGL.wrapVulkan godot)
             ];
           };
         }

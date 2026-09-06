@@ -17,19 +17,19 @@ fmt:
 
 # flake の評価・checksを確認
 check:
-    nix flake check
+    nix flake check --impure path:.
 
 # base-env を実際にビルドする
 # result symlink は作らない
 build:
-    nix build .#default --no-link
+    nix build --impure path:.#default --no-link
 
 # 現在の flake をユーザープロファイルへ反映
 #
 # build が成功してから既存 base-env を入れ替える。
 switch: check build
     nix profile remove chezmoi-dotfiles 2>/dev/null || true
-    nix profile add .#default
+    nix profile add --impure path:.#default
 
 # nixpkgs の lock を更新してから反映
 upgrade:
