@@ -1,8 +1,12 @@
 # Created by newuser for 5.9
 export EDITOR=nano
 export VISUAL=nano
+export PATH="$HOME/.local/bin:$PATH"
 
 bindkey -r '^V'
 
-eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
+
+# Unity CLI
+case ":${PATH}:" in *:"$HOME/.local/bin":*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac

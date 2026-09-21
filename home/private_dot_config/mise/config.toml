@@ -1,4 +1,6 @@
 [tools]
-"github:openai/codex" = "latest"
+"npm:@openai/codex" = "latest"
+go = "latest"
 node = "lts"
 pnpm = "latest"
+rust = "latest"
