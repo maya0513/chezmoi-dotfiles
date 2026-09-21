@@ -55,6 +55,14 @@ nix-profile:
 nix-rollback:
     nix profile rollback
 
+# Nix store全体の未参照pathを削除せず確認
+nix-gc-check:
+    nix store gc --dry-run
+
+# Nix store全体の未参照pathを削除（profile履歴は保持）
+nix-gc:
+    nix store gc
+
 
 # ---------------------------------------------------------------------------
 # Applications
