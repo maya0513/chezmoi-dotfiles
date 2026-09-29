@@ -14,7 +14,7 @@
 
 - レシピは`just --list`で確認し、分類名には`nix`、`chz`、`godot`、`b3d`を使う。
 - Nixの変更後は`just nix-check`と`just nix-build`を実行する。
-- chezmoiの変更後は`just chz-diff`を確認し、必要な場合だけ`just chz-apply`して、最後に`just chz-status`を実行する。
+- chezmoiの変更後は`just chz-diff`と`just chz-status`で状態を確認する。アプリが自動更新した設定は、必要に応じて`just chz-add`でソースへ取り込む。chezmoiからホームへの一括適用は行わない。
 - `upgrade`、lock更新、profile切替、chezmoi apply、Nix GCは依頼の範囲と影響を確認してから行う。
 - ユーザーの既存変更を保持し、Gitへのstage、commit、pushは明示的な依頼なしに行わない。
 

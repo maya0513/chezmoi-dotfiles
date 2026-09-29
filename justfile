@@ -96,6 +96,10 @@ godot-list:
 godot-doctor:
     ./godot/doctor.sh
 
+# Godot をデスクトップアプリとして登録（ユーザーごとに一度）
+godot-register-desktop:
+    ./godot/register-desktop.sh
+
 # Blender の最新版、または指定バージョンをインストールして有効化
 b3d version="latest":
     version="$(./blender/install.sh "{{version}}")"; ./blender/use.sh "$version"
@@ -125,17 +129,18 @@ b3d-doctor:
     ./blender/doctor.sh
 
 
+# Blender をデスクトップアプリとして登録（ユーザーごとに一度）
+b3d-register-desktop:
+    ./blender/register-desktop.sh
+
+
 # ---------------------------------------------------------------------------
 # chezmoi
 # ---------------------------------------------------------------------------
 
-# chezmoi の適用前差分を表示
+# chezmoi 管理対象の差分を表示
 chz-diff:
     chezmoi diff
-
-# chezmoi 管理下の dotfiles を $HOME に反映
-chz-apply:
-    chezmoi apply
 
 # chezmoi 管理対象の状態を表示
 chz-status:
@@ -152,14 +157,6 @@ chz-add path:
 # chezmoi 管理ファイルを編集
 chz-edit path:
     chezmoi edit "{{path}}"
-
-# 現在の chezmoi 管理下の dotfiles を $HOME へ同期
-chz-sync: chz-apply
-
-# Git で dotfiles repo を pull して chezmoi 管理下の dotfiles を同期
-chz-pull:
-    git pull --ff-only
-    just chz-sync
 
 
 # ---------------------------------------------------------------------------
